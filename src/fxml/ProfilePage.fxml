@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: gray;" stylesheets="@btstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.ProfileController">
+   <children>
+      <ListView fx:id="lvProfiles" layoutX="14.0" layoutY="240.0" prefHeight="226.0" prefWidth="612.0" />
+      <Button fx:id="btBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Voltar" />
+      <TextField fx:id="etName" layoutX="14.0" layoutY="106.0" prefHeight="31.0" prefWidth="391.0" />
+      <ToggleButton fx:id="btAdd" layoutX="421.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleButtonAdd" style="-fx-graphic: url('http://icons.iconarchive.com/icons/custom-icon-design/flatastic-1/64/add-icon.png'); -fx-background-color: Transparent;" textFill="#194d9a" />
+   </children>
+</AnchorPane>
