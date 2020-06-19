@@ -86,7 +86,7 @@ public class InitialPageController implements Initializable {
     @FXML
     private void handleButtonLearnAction(ActionEvent event) throws IOException {
         
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/LearnPathPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/LearnPathSubject.fxml"));
         Scene scene = btProfile.getScene();
         
         root.translateYProperty().set(scene.getHeight());
