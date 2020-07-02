@@ -31,20 +31,17 @@ import javafx.util.Duration;
  *
  * @author Lucas Gabriel Silva
  */
-public class LearnPathPageController implements Initializable {
+public abstract class LearnPathController implements Initializable {
 
     @FXML
     private Button btBack;
     @FXML
     private AnchorPane panel;
-    @FXML
-    private Button btAnimals;
-    @FXML
-    private Button btColors;
+
+    protected Scene scene;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
-        
         Scene scene = btBack.getScene();
         
         StackPane stackpane = (StackPane) scene.getRoot();
@@ -67,25 +64,12 @@ public class LearnPathPageController implements Initializable {
         //Parent root = FXMLLoader.load(getClass().getResource("/fxml/LearnPage.fxml"));
         Parent root = (Parent) loader.load();
         LearnPageController controller = loader.<LearnPageController>getController();
-        
+
         String sub = ((Button)event.getSource()).getText();
+        Subject dictionary = SetupSubject.fillSubject(sub);
+        controller.setSubject(dictionary);
+        setSceneCategory(sub);
 
-        if(sub.equals("Animais")){
-            Subject animalsDict = new Subject();
-            animalsDict.setName("Dog", "Cachorro");
-            animalsDict.setImage("Dog", new Image("/resources/animals/dog.jpg"));
-            animalsDict.setName("Cat", "Gato");
-            animalsDict.setImage("Cat", new Image("/resources/animals/cat.png"));
-            animalsDict.setName("Horse", "Cavalo");
-            animalsDict.setImage("Horse", new Image("/resources/animals/horse.jpg"));
-            animalsDict.setName("Duck", "Pato");
-            animalsDict.setImage("Duck", new Image("/resources/animals/duck.jpg"));
-
-            controller.setSubject(animalsDict);
-        }
-        
-        Scene scene = btAnimals.getScene();
-        
         StackPane stackpane = (StackPane) scene.getRoot();
         
         root.translateYProperty().set(scene.getHeight());
@@ -100,7 +84,14 @@ public class LearnPathPageController implements Initializable {
         });
         timeline.play();
     }
-    
+
+    /**
+     * scene recieves btXXXX.getScene()
+     * @param sub Indicates which subject will be created
+     * @return the subject filled with its content
+     */
+    public abstract void setSceneCategory(String sub);
+
     /**
      * Initializes the controller class.
      */

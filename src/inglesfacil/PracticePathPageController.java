@@ -62,13 +62,13 @@ public class PracticePathPageController implements Initializable {
         if(sub.equals("Animais")){
             Subject animalsDict = new Subject();
             animalsDict.setName("Dog", "Cachorro");
-            animalsDict.setImage("Dog", new Image("/resources/animals/dog.jpg"));
+            animalsDict.setImage("Dog", new Image("/resources/animals/mamiferos/dog.jpg"));
             animalsDict.setName("Cat", "Gato");
-            animalsDict.setImage("Cat", new Image("/resources/animals/cat.png"));
+            animalsDict.setImage("Cat", new Image("/resources/animals/mamiferos/cat.png"));
             animalsDict.setName("Horse", "Cavalo");
-            animalsDict.setImage("Horse", new Image("/resources/animals/horse.jpg"));
+            animalsDict.setImage("Horse", new Image("/resources/animals/mamiferos/horse.jpg"));
             animalsDict.setName("Duck", "Pato");
-            animalsDict.setImage("Duck", new Image("/resources/animals/duck.jpg"));
+            animalsDict.setImage("Duck", new Image("/resources/animals/mamiferos/duck.jpg"));
 
             controller.setSubject(animalsDict);
         }

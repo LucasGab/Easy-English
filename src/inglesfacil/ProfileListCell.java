@@ -11,7 +11,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import sun.plugin.javascript.navig.Anchor;
+//import sun.plugin.javascript.navig.Anchor;
 
 /**
  *
