@@ -19,7 +19,7 @@ public class InglesFacil extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/InitialPage.fxml"));
         
         Scene scene = new Scene(root);
         stage.setResizable(false);

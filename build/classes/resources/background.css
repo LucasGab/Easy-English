@@ -1,0 +1,15 @@
+.animal {
+    -fx-background-image: url("/resources/animals/animalBackground.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+}
+.color {
+    -fx-background-image: url("/resources/color/colorBackground.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+}
+.object{
+    -fx-background-image: url("/resources/object/objectBackground.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+}

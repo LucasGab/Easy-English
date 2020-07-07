@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="InglesFacil.jar" size="586235" download="eager" />
+    <jar href="InglesFacil.jar" size="8160462" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="InglesFacil" >
     <param name="requiredFXVersion" value="8.0+"/>

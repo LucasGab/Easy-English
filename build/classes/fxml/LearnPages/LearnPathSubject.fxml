@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#handleButtonLearnAction" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: gray;" stylesheets="@../btstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.LearnPages.LearnPathSubjectController">
+   <children>
+      <Button fx:id="btBack" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Voltar" />
+      <Button fx:id="btAnimals" layoutX="28.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Animais" />
+      <Button fx:id="btColors" layoutX="26.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Cores" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="44.0" layoutY="97.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 65,0  a 2,2 0 1,1 -65,0" fill="#94470c" layoutX="34.0" layoutY="52.0" />
+      <Label layoutX="70.0" layoutY="90.0" prefHeight="21.0" prefWidth="50.0" text="START" textFill="WHITE">
+         <font>
+            <Font name="Ink Free" size="14.0" />
+         </font>
+      </Label>
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="25.0" layoutY="123.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="31.0" layoutY="156.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="36.0" layoutY="235.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="50.0" layoutY="261.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="38.0" layoutY="287.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="19.0" layoutY="362.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="13.0" layoutY="390.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="25.0" layoutY="410.0" stroke="#ff9400" />
+      <Button fx:id="btObjects" layoutX="95.0" layoutY="434.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Objetos" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="50.0" layoutY="410.0" stroke="#ff9400" />
+   </children>
+</AnchorPane>

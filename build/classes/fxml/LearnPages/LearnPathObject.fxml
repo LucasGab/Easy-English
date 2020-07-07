@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" styleClass="object" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.LearnPages.LearnPathObjectController">
+   <children>
+      <Label layoutX="268.0" layoutY="55.0" prefHeight="63.0" prefWidth="154.0" text="Objetos" textFill="#0c079e">
+         <font>
+            <Font name="Dyuthi Regular" size="38.0" />
+         </font>
+      </Label>
+      <Button fx:id="btEscola" layoutX="133.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Escola" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="188.0" layoutY="148.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="182.0" layoutY="289.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="222.0" layoutY="209.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="210.0" layoutY="175.0" stroke="#ff9400" />
+      <Button fx:id="btMoveis" layoutX="333.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Móveis" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="435.0" layoutY="277.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="216.0" layoutY="247.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="457.0" layoutY="247.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="411.0" layoutY="314.0" stroke="#ff9400" />
+      <Button fx:id="btCozinha" layoutX="487.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Cozinha" />
+      <Button fx:id="btBack" layoutX="44.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Voltar" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="399.0" layoutY="346.0" stroke="#ff9400" />
+      <Button fx:id="btTecnologia" layoutX="143.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Tecnologia" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="198.0" layoutY="361.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="238.0" layoutY="374.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="272.0" layoutY="380.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="204.0" layoutY="271.0" stroke="#ff9400" />
+   </children>
+   <stylesheets>
+      <URL value="@../btstyle.css" />
+      <URL value="@../../resources/background.css" />
+   </stylesheets>
+</AnchorPane>
