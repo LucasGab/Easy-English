@@ -1,6 +1,7 @@
 package inglesfacil.InitialPage;
 
 import inglesfacil.ConnectionDB;
+import inglesfacil.GameInformation.Profile;
 import inglesfacil.InglesFacil;
 import inglesfacil.PageAction;
 import javafx.collections.FXCollections;
@@ -32,16 +33,16 @@ public class LeaderBoardPageController implements Initializable {
     private Button btBack;
 
     @FXML
-    private TableView<InglesFacil.Profile> tbLeaderBoard;
+    private TableView<Profile> tbLeaderBoard;
 
     @FXML
-    public TableColumn<InglesFacil.Profile, String> username;
+    public TableColumn<Profile, String> username;
 
     @FXML
-    public TableColumn<InglesFacil.Profile, Integer> level;
+    public TableColumn<Profile, Integer> level;
 
     @FXML
-    public TableColumn<InglesFacil.Profile, Integer> position;
+    public TableColumn<Profile, Integer> position;
 
     Map<String, Integer> map;
     private Connection connection;
@@ -58,9 +59,9 @@ public class LeaderBoardPageController implements Initializable {
         }catch (NullPointerException e) {
             e.printStackTrace();
         }
-        position.setCellValueFactory(new PropertyValueFactory<InglesFacil.Profile,Integer>("position"));
-        username.setCellValueFactory(new PropertyValueFactory<InglesFacil.Profile,String>("name"));
-        level.setCellValueFactory(new PropertyValueFactory<InglesFacil.Profile,Integer>("lvl"));
+        position.setCellValueFactory(new PropertyValueFactory<Profile,Integer>("position"));
+        username.setCellValueFactory(new PropertyValueFactory<Profile,String>("name"));
+        level.setCellValueFactory(new PropertyValueFactory<Profile,Integer>("lvl"));
         display();
     }
 
@@ -83,11 +84,11 @@ public class LeaderBoardPageController implements Initializable {
                     .collect(
                             toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
                                     LinkedHashMap::new));
-            ObservableList<InglesFacil.Profile> profile = FXCollections.observableArrayList();
+            ObservableList<Profile> profile = FXCollections.observableArrayList();
             //fill table
             int i = 1;
             for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
-                InglesFacil.Profile player = new InglesFacil.Profile(i,entry.getKey(), entry.getValue());
+                Profile player = new Profile(i,entry.getKey(), entry.getValue());
                 profile.add(player);
                 ++i;
             }

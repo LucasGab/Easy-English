@@ -69,7 +69,7 @@ public class Level {
             return 11;
         } else {
             for(int i = 0; i < xpList.length - 1; ++i) {
-                if (xpList[i] < xp && xp < xpList[i + 1]) {
+                if (xpList[i] <= xp && xp < xpList[i + 1]) {
                     return i + 1;
                 }
             }
