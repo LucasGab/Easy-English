@@ -76,7 +76,6 @@ public class MenuPageController implements Initializable {
             levelProgressString = "" + (player.getLvl() - l.getXPNeeded(level-1)) + " / " + l.getXPNeeded(level);
         }
         levelProgress.setText(levelProgressString);
-
         //display rank
         Pair<String, Image> rank = l.getRank(level);
         rankName.setText(rank.getKey());
