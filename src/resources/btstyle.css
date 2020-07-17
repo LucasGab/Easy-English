@@ -12,3 +12,13 @@
     -fx-font-size: 14px;
     -fx-padding: 10 20 10 20;
 }
+.buttonRed {
+    -fx-background-color: linear-gradient(red, darkred);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 10px;
+    -fx-padding: 10 20 10 20;
+}
+

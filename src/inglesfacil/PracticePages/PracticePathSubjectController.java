@@ -5,15 +5,12 @@
  */
 package inglesfacil.PracticePages;
 
-import inglesfacil.SetupSubject;
+import inglesfacil.PageAction;
+import inglesfacil.GameInformation.SetupSubject;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,8 +19,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -40,6 +35,8 @@ public class PracticePathSubjectController implements Initializable {
     private Button btColors;
     @FXML
     private Button btAnimals;
+    @FXML
+    private Button btInsects;
     @FXML
     private Button btBack;
 
@@ -69,40 +66,21 @@ public class PracticePathSubjectController implements Initializable {
         }else if(sub.equals("Objetos")){
             loader = new FXMLLoader(getClass().getResource("/fxml/PracticePages/PracticePathObject.fxml"));
             scene = btObjects.getScene();
+        } else if (sub.equals("Insetos")) {
+            loader = new FXMLLoader(getClass().getResource("/fxml/PracticePages/PracticePathInsect.fxml"));
+            scene = btInsects.getScene();
         }
         
         Parent root = loader.load();
-        StackPane stackpane = (StackPane) scene.getRoot();
-        
-        root.translateYProperty().set(scene.getHeight());
-        stackpane.getChildren().add(root);
-        
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(event1 ->{
-           //stackpane.getChildren().remove(panel);
-        });
-        timeline.play();
+        AnchorPane anchorPane = (AnchorPane) scene.getRoot();
+
+        PageAction.transitionScene(root,scene,anchorPane);
     }
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        
         Scene scene = btBack.getScene();
-        
-        StackPane stackpane = (StackPane) scene.getRoot();
-        
-        TranslateTransition trans = new TranslateTransition(Duration.seconds(1), panel);
-        trans.setFromY(0);
-        trans.setToY(-scene.getHeight());
-        trans.play();
-        
-        trans.setOnFinished(event1 -> {
-            stackpane.getChildren().remove(panel);
-        });
-        
+        PageAction.backScene(scene,panel);
     }
     
 }

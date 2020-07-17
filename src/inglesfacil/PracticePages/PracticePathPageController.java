@@ -5,16 +5,13 @@
  */
 package inglesfacil.PracticePages;
 
-import inglesfacil.SetupSubject;
-import inglesfacil.Subject;
+import inglesfacil.PageAction;
+import inglesfacil.GameInformation.SetupSubject;
+import inglesfacil.GameInformation.Subject;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +20,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -68,23 +63,13 @@ public abstract class PracticePathPageController implements Initializable {
         controller.setSubject(dictionary);
         setSceneCategory(sub);
         
-        StackPane stackpane = (StackPane) scene.getRoot();
-        
-        root.translateYProperty().set(scene.getHeight());
-        stackpane.getChildren().add(root);
-        
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(event1 ->{
-           //stackpane.getChildren().remove(panel);
-        });
-        timeline.play();
+        AnchorPane anchorPane = (AnchorPane) scene.getRoot();
+
+        PageAction.transitionScene(root,scene,anchorPane);
     }
     
     /**
-     * scene relieves btXXXX.getScene()
+     * scene relieves bt_____.getScene()
      * @param sub Indicates which subject will be created
      */
     public abstract void setSceneCategory(String sub);
@@ -92,18 +77,9 @@ public abstract class PracticePathPageController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         
-        Scene actualScene = btBack.getScene();
-        
-        StackPane stackpane = (StackPane) actualScene.getRoot();
-        
-        TranslateTransition trans = new TranslateTransition(Duration.seconds(1), panel);
-        trans.setFromY(0);
-        trans.setToY(-actualScene.getHeight());
-        trans.play();
-        
-        trans.setOnFinished(event1 -> {
-            stackpane.getChildren().remove(panel);
-        });
+        Scene scene = btBack.getScene();
+
+        PageAction.backScene(scene,panel);
         
     }
     

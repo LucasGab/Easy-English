@@ -5,21 +5,26 @@
  */
 package inglesfacil.PracticePages;
 
-import inglesfacil.Random;
-import inglesfacil.Subject;
+import inglesfacil.*;
+import inglesfacil.GameInformation.StorePlayer;
+
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
-import javafx.animation.TranslateTransition;
+
+import inglesfacil.GameInformation.Subject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -36,7 +41,9 @@ public class PracticePageController implements Initializable {
     int contWord;
     int rightOption;
     int totalPoints;
-    
+
+    private Connection connection;
+    private PreparedStatement preparedStatement;
     
     @FXML
     private ImageView ivImage;
@@ -56,13 +63,13 @@ public class PracticePageController implements Initializable {
     private Label lbRigth;
     @FXML
     private Label lbTotal;
+    @FXML
+    private Label slashBar;
+    @FXML
+    private Label finalScore;
+    @FXML
+    private Label xpEarned;
 
-    public void setSubject(Subject subject){
-        this.subject = subject;
-        totalWords = subject.getDictionary().size();
-        setView();
-    }
-    
     /**
      * Initializes the controller class.
      * @param url
@@ -70,55 +77,80 @@ public class PracticePageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        connection = ConnectionDB.conector();
         totalWords = subject.getDictionary().size();
         contWord = 0;
         totalPoints = 0;
-    }    
+        finalScore.setVisible(false);
+        xpEarned.setVisible(false);
+    }
 
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        Scene scene = btBack.getScene();
-
-        StackPane stackpane = (StackPane) scene.getRoot();
-
-        TranslateTransition trans = new TranslateTransition(Duration.seconds(1), panel);
-        trans.setFromY(0);
-        trans.setToY(-scene.getHeight());
-        trans.play();
-
-        trans.setOnFinished(event1 -> {
-            stackpane.getChildren().remove(panel);
-        });
+    public void setSubject(Subject subject){
+        this.subject = subject;
+        totalWords = subject.getDictionary().size();
+        setView();
     }
 
     @FXML
-    private void handleButtonOptionAction(ActionEvent event) {
-        
-        if(contWord < totalWords-1){
-            String sub = ((Button)event.getSource()).getText();
-            String name = (String)subject.getDictionary().keySet().toArray()[contWord];
-            if(sub.equals(name)){
-                totalPoints++;
-            }
-            contWord++;
+    private void handleButtonAction(ActionEvent event) throws IOException {
+        Scene scene = btBack.getScene();
+        PageAction.backScene(scene,panel);
+    }
+
+    @FXML
+    private void handleButtonOptionAction(ActionEvent event) throws IOException {
+        String sub = ((Button)event.getSource()).getText();
+        String name = (String)subject.getDictionary().keySet().toArray()[contWord];
+        if(sub.equals(name)){
+            totalPoints++;
+        }
+        contWord++;
+        if(contWord < totalWords){
             setView();
         }else{
-            Scene scene = btBack.getScene();
-
-            StackPane stackpane = (StackPane) scene.getRoot();
-
-            TranslateTransition trans = new TranslateTransition(Duration.seconds(1), panel);
-            trans.setFromY(0);
-            trans.setToY(-scene.getHeight());
-            trans.play();
-
-            trans.setOnFinished(event1 -> {
-                stackpane.getChildren().remove(panel);
-            });
+            if(!StorePlayer.getGuest()) {       //player logged in
+                //give the player xp for completing the lesson
+                StorePlayer.incrementLVL (totalPoints);
+                //update lvl in database
+                updateProfileDataBase();
+            }
+            //show performance on lesson
+            displayScore();
         }
-        
     }
-    
+
+    private void updateProfileDataBase(){
+        try {
+            String query = "update tbPlayer set level = ? where username = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, StorePlayer.getPlayer().getLvl());
+            preparedStatement.setString(2, StorePlayer.getPlayer().getName());
+            preparedStatement.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void displayScore() {
+        String finalScoreString = "";
+
+        //makes everything invisible in scene
+        btOption1.setVisible(false);
+        btOption2.setVisible(false);
+        btOption3.setVisible(false);
+        btOption4.setVisible(false);
+        ivImage.setVisible(false);
+        lbRigth.setVisible(false);
+        lbTotal.setVisible(false);
+        slashBar.setVisible(false);
+
+        //display score
+        finalScoreString = "PONTUAÇÃO: " + totalPoints + " / " + totalWords;
+        xpEarned.setText("XP ganho: " + totalPoints);
+        xpEarned.setVisible(true);
+        finalScore.setText(finalScoreString);
+        finalScore.setVisible(true);
+    }
     private void setView(){
         String name = (String)subject.getDictionary().keySet().toArray()[contWord];
         

@@ -10,27 +10,35 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#handleButtonLearnAction" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: gray;" stylesheets="@../btstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.LearnPages.LearnPathSubjectController">
+<AnchorPane id="AnchorPane" fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" styleClass="path" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.LearnPages.LearnPathSubjectController">
    <children>
       <Button fx:id="btBack" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Voltar" />
-      <Button fx:id="btAnimals" layoutX="28.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Animais" />
-      <Button fx:id="btColors" layoutX="26.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Cores" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="44.0" layoutY="97.0" stroke="#ff9400" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 65,0  a 2,2 0 1,1 -65,0" fill="#94470c" layoutX="34.0" layoutY="52.0" />
-      <Label layoutX="70.0" layoutY="90.0" prefHeight="21.0" prefWidth="50.0" text="START" textFill="WHITE">
+      <Button fx:id="btAnimals" layoutX="106.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Animais" />
+      <Button fx:id="btColors" layoutX="288.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Cores" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="94.0" layoutY="217.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 65,0  a 2,2 0 1,1 -65,0" fill="#94470c" layoutX="38.0" layoutY="162.0" />
+      <Label layoutX="71.0" layoutY="206.0" prefHeight="21.0" prefWidth="50.0" text="START" textFill="WHITE">
          <font>
             <Font name="Ink Free" size="14.0" />
          </font>
       </Label>
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="25.0" layoutY="123.0" stroke="#ff9400" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="31.0" layoutY="156.0" stroke="#ff9400" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="36.0" layoutY="235.0" stroke="#ff9400" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="50.0" layoutY="261.0" stroke="#ff9400" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="38.0" layoutY="287.0" stroke="#ff9400" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="19.0" layoutY="362.0" stroke="#ff9400" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="13.0" layoutY="390.0" stroke="#ff9400" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="25.0" layoutY="410.0" stroke="#ff9400" />
-      <Button fx:id="btObjects" layoutX="95.0" layoutY="434.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Objetos" />
-      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="50.0" layoutY="410.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="462.0" layoutY="168.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="488.0" layoutY="156.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="197.0" layoutY="297.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="351.0" layoutY="263.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="237.0" layoutY="297.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="106.0" layoutY="251.0" stroke="#ff9400" />
+      <SVGPath content="M 25, 50 a 2,2 0 1,1 10,0  a 2,2 0 1,1 -10,0" fill="#ff9400" layoutX="382.0" layoutY="245.0" stroke="#ff9400" />
+      <Button fx:id="btObjects" layoutX="406.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Objetos" />
+      <Button fx:id="btInsects" layoutX="539.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" text="Insetos" />
+      <Label layoutX="233.0" layoutY="101.0" text="APRENDER" textFill="#2200a8">
+         <font>
+            <Font name="Ink Free" size="30.0" />
+         </font>
+      </Label>
    </children>
+   <stylesheets>
+      <URL value="@../btstyle.css" />
+      <URL value="@../../resources/background.css" />
+   </stylesheets>
 </AnchorPane>

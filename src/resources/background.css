@@ -8,8 +8,23 @@
     -fx-background-repeat: stretch;
     -fx-background-size: 100% 100%;
 }
-.object{
+.object {
     -fx-background-image: url("/resources/object/objectBackground.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+}
+.insect {
+    -fx-background-image: url("/resources/insect/insectBackground.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+}
+.menu {
+    -fx-background-image: url("/resources/menuBackground.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+}
+.path {
+    -fx-background-image: url("/resources/pathBackground.jpg");
     -fx-background-repeat: stretch;
     -fx-background-size: 100% 100%;
 }
