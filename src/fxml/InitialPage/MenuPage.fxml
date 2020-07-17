@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.InitialPage.MenuPageController">
+   <children>
+      <SplitPane dividerPositions="0.4918032786885246" layoutY="-3.0" orientation="VERTICAL" prefHeight="490.0" prefWidth="640.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" layoutY="-3.0" prefHeight="242.0" prefWidth="638.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="210.0" prefWidth="266.0">
+                           <children>
+                              <Button fx:id="btLearn" layoutX="34.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleButtonLearnAction" prefHeight="83.0" prefWidth="248.0" text="APRENDER" textFill="#4a0094">
+                                 <font>
+                                    <Font name="Ink Free" size="36.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="240.0" prefWidth="291.0">
+                           <children>
+                              <ProgressBar fx:id="progressBar" layoutX="59.0" layoutY="190.0" prefWidth="200.0" progress="0.0" />
+                              <Pane fx:id="rankImage" layoutX="70.0" layoutY="24.0" prefHeight="105.0" prefWidth="177.0">
+                                 <children>
+                                    <ImageView fx:id="imageView" fitHeight="113.0" fitWidth="177.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="false" />
+                                 </children>
+                              </Pane>
+                              <Label fx:id="levelProgress" layoutX="65.0" layoutY="208.0" text="level progress" />
+                              <StackPane layoutX="91.0" layoutY="138.0" prefHeight="61.0" prefWidth="134.0">
+                                 <children>
+                                    <Label fx:id="rankName" alignment="CENTER" text="RANK NAME">
+                                       <font>
+                                          <Font name="Cambria Math" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <Button fx:id="btRefresh" layoutX="255.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleButtonRefreshAction" prefHeight="25.0" prefWidth="55.0" text="Atualizar">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.5031446540880503" layoutX="-2.0" layoutY="-2.0" prefHeight="242.0" prefWidth="638.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="210.0" prefWidth="266.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="71.0" prefHeight="98.0" prefWidth="294.0" text="JOGAR" textAlignment="CENTER" textFill="#4e08ff">
+                                 <effect>
+                                    <Lighting diffuseConstant="1.32" light="$null" specularConstant="0.88" specularExponent="26.36" surfaceScale="2.9">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                    </Lighting>
+                                 </effect>
+                                 <font>
+                                    <Font name="Ink Free" size="50.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btPractice" layoutX="35.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleButtonPracticeAction" prefHeight="83.0" prefWidth="248.0" text="JOGAR" textFill="RED">
+                                 <font>
+                                    <Font name="Ink Free" size="36.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="240.0" prefWidth="291.0">
+                           <children>
+                              <Button fx:id="btCredit" layoutX="109.0" layoutY="120.0" mnemonicParsing="false" onAction="#handleButtonCreditsAction" stylesheets="@../../resources/btstyle.css" text="Créditos" />
+                              <Button fx:id="btExit" layoutX="125.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleButtonExitAction" styleClass="buttonRed" stylesheets="@../../resources/btstyle.css" text="SAIR" />
+                              <Button fx:id="btPlacar" layoutX="110.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleButtonPlacarAction" stylesheets="@../../resources/btstyle.css" text="PLACAR" />
+                              <Button fx:id="btManual" layoutX="112.0" layoutY="71.0" mnemonicParsing="false" onAction="#handleButtonManualAction" stylesheets="@../../resources/btstyle.css" text="Manual" />
+                           </children></AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

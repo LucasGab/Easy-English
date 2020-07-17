@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="anchorPane" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.InitialPage.ManualPageController">
+   <children>
+      <Label layoutX="20.0" layoutY="93.0" prefHeight="50.0" prefWidth="413.0" text="1. O level do jogador é representado de 0 a 10" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="152.0" prefHeight="50.0" prefWidth="600.0" text="2. Cada acerto no modo de jogo JOGAR dá 1 de xp para o jogador" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btBack" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleButtonBackAction" stylesheets="@../../resources/btstyle.css" text="Voltar" />
+   </children>
+</AnchorPane>

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package inglesfacil;
+package inglesfacil.GameInformation;
 
+import inglesfacil.GameInformation.Subject;
 import javafx.scene.image.Image;
 
 /**
@@ -85,7 +86,7 @@ public class SetupSubject {
                 subject.setName("Orange", "Laranja");
                 subject.setImage("Orange", new Image("/resources/color/orange.jpg"));
             }
-        }else if(category.equals("Objetos")) {
+        } else if(category.equals("Objetos")) {
             if (sub.equals("Escola")) {
                 subject.setName("Pen", "Caneta");
                 subject.setImage("Pen", new Image("/resources/object/escola/pen.png"));
@@ -124,6 +125,31 @@ public class SetupSubject {
                 subject.setImage("Plate", new Image("/resources/object/cozinha/plate.png"));
                 subject.setName("Kitchen", "Cozinha");
                 subject.setImage("Kitchen", new Image("/resources/object/cozinha/kitchen.png"));
+            }
+        } else if(category.equals("Insetos")) {
+            if (sub.equals("Insetos 1")) {
+                subject.setName("Ant", "Formiga");
+                subject.setImage("Ant", new Image("/resources/insect/insetos1/ant.png"));
+                subject.setName("Beetle", "Besouro");
+                subject.setImage("Beetle", new Image("/resources/insect/insetos1/beetle.png"));
+                subject.setName("Caterpillar", "Lagarta");
+                subject.setImage("Caterpillar", new Image("/resources/insect/insetos1/caterpillar.png"));
+            } else if (sub.equals("Insetos 2")) {
+                subject.setName("Grasshopper", "Gafanhoto");
+                subject.setImage("Grasshopper", new Image("/resources/insect/insetos2/grasshopper.png"));
+                subject.setName("Scorpion", "Escorpião");
+                subject.setImage("Scorpion", new Image("/resources/insect/insetos2/scorpion.png"));
+                subject.setName("Spider", "Aranha");
+                subject.setImage("Spider", new Image("/resources/insect/insetos2/spider.png"));
+            } else if (sub.equals("Voadores")) {
+                subject.setName("ladybug", "Joaninha");
+                subject.setImage("ladybug", new Image("/resources/insect/voadores/ladybug.png"));
+                subject.setName("Bee", "Abelha");
+                subject.setImage("Bee", new Image("/resources/insect/voadores/bee.png"));
+                subject.setName("Wasp", "Vespa");
+                subject.setImage("Wasp", new Image("/resources/insect/voadores/wasp.png"));
+                subject.setName("Butterfly", "Borboleta");
+                subject.setImage("Butterfly", new Image("/resources/insect/voadores/butterfly.png"));
             }
         }
         return subject;

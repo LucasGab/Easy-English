@@ -5,11 +5,12 @@
  */
 package inglesfacil.LearnPages;
 
-import inglesfacil.Subject;
+import inglesfacil.PageAction;
+import inglesfacil.GameInformation.Subject;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.TranslateTransition;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,8 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -56,17 +55,7 @@ public class LearnPageController implements Initializable {
     @FXML
     private void handleButtonBackAction(ActionEvent event) throws IOException {
         Scene scene = btBack.getScene();
-
-        StackPane stackpane = (StackPane) scene.getRoot();
-
-        TranslateTransition trans = new TranslateTransition(Duration.seconds(1), panel);
-        trans.setFromY(0);
-        trans.setToY(-scene.getHeight());
-        trans.play();
-
-        trans.setOnFinished(event1 -> {
-            stackpane.getChildren().remove(panel);
-        });
+        PageAction.backScene(scene,panel);
     }
     
     @FXML
@@ -82,17 +71,7 @@ public class LearnPageController implements Initializable {
         contWord+=1;
         if(contWord >= totalWords){
             Scene scene = btBack.getScene();
-
-            StackPane stackpane = (StackPane) scene.getRoot();
-
-            TranslateTransition trans = new TranslateTransition(Duration.seconds(1), panel);
-            trans.setFromY(0);
-            trans.setToY(-scene.getHeight());
-            trans.play();
-
-            trans.setOnFinished(event1 -> {
-                stackpane.getChildren().remove(panel);
-            });
+            PageAction.backScene(scene,panel);
         }else{
             setView();
         }

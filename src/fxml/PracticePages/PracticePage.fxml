@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -30,7 +31,7 @@
             <Font name="System Bold" size="41.0" />
          </font>
       </Label>
-      <Label layoutX="547.0" layoutY="25.0" text="/" textFill="WHITE">
+      <Label fx:id="slashBar" layoutX="547.0" layoutY="25.0" text="/" textFill="WHITE">
          <font>
             <Font name="System Bold" size="41.0" />
          </font>
@@ -38,6 +39,16 @@
       <Label fx:id="lbTotal" layoutX="577.0" layoutY="25.0" text="0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="41.0" />
+         </font>
+      </Label>
+      <Label fx:id="finalScore" layoutX="105.0" layoutY="199.0" text="Final Score">
+         <font>
+            <Font name="Ink Free" size="50.0" />
+         </font>
+      </Label>
+      <Label layoutX="114.0" layoutY="251.0" prefHeight="82.0" prefWidth="428.0" text="xp" fx:id="xpEarned">
+         <font>
+            <Font name="Ink Free" size="50.0" />
          </font>
       </Label>
    </children>
