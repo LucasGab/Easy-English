@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPage" fx:id="panel" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: gray;" stylesheets="@../btstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.CreditPage.CreditsController">
+<AnchorPane id="AnchorPage" fx:id="panel" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: gray;" stylesheets="@../btstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inglesfacil.InitialPage.CreditsController">
    <children>
       <Label layoutX="23.0" layoutY="125.0" text="Lucas Gabriel de Araujo Silva" textFill="WHITE">
          <font>

@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * Main page
  * @author Lucas Gabriel Silva
  */
 public class InglesFacil extends Application {

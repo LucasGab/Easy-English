@@ -29,7 +29,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Generate a random number
  * @author Lucas Gabriel Silva
  */
 public class Random {

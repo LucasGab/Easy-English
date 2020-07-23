@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package inglesfacil.InitialPage;
 
 import java.io.IOException;
@@ -29,8 +23,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 /**
+ * FXML Controller class
  * Control login request from database
- * @author
+ * @author Daniel Suzumura
  */
 public class LoginPageController implements Initializable {
 
@@ -70,18 +65,23 @@ public class LoginPageController implements Initializable {
     private void handleButtonLoginAction(ActionEvent event) throws IOException {
         try {
             String sql = "select * from tbPlayer where username = ? and password = ?";
+
             preparedStatement = connection.prepareStatement(sql);
+
+            //read user input
             preparedStatement.setString(1, usernameField.getText());
             preparedStatement.setString(2, passwordField.getText());
             resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){       //login successfully
+
+            if(resultSet.next()){       //verify if login exists and it's correct
                 //read the information about the profile
                 getProfileData(usernameField.getText());
-                //load Menu scene
+                connection.close();
+
+                //go to Menu scene
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/MenuPage.fxml"));
                 Scene scene = btLogin.getScene();
                 PageAction.transitionScene(root,scene,anchorPane);
-                connection.close();
             } else {
                 loginError.setVisible(true);
             }
@@ -111,9 +111,6 @@ public class LoginPageController implements Initializable {
 
             //stores the values
             StorePlayer.setPlayer(player);
-            //System.out.println(StorePlayer.getPlayer().getName());
-            //System.out.println(StorePlayer.getPlayer().getLvl());
-            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,9 +123,9 @@ public class LoginPageController implements Initializable {
         try {
             Profile player = new Profile();
             player.setLvl(0);
+            player.setName("Convidado");
 
             //stores the values
-            player.setName("Convidado");
             StorePlayer.setPlayer(player);
             StorePlayer.setGuest(true);
         } catch (Exception e) {
@@ -138,9 +135,9 @@ public class LoginPageController implements Initializable {
 
     @FXML
     private void handleButtonRegisterAction(ActionEvent event) throws IOException  {
+        //go to register page
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/RegisterUserPage.fxml"));
         Scene scene = btRegister.getScene();
-
         PageAction.transitionScene(root,scene,anchorPane);
     }
 
@@ -149,9 +146,9 @@ public class LoginPageController implements Initializable {
         //setup profile for guest player
         getProfileData();
 
+        //go to menu page
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/MenuPage.fxml"));
         Scene scene = btGuest.getScene();
-
         PageAction.transitionScene(root,scene,anchorPane);
     }
 }

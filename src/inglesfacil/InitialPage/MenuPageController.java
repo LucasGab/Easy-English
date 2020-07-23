@@ -23,6 +23,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * FXML Controller class
+ * Display rank and controls program menu
+ *
+ * @author Daniel Suzumura
+ * @author Mateus Zanetti Camargo Penteado
+ * @author Tainá Andrello Piai
+ */
 public class MenuPageController implements Initializable {
 
     @FXML
@@ -63,27 +71,36 @@ public class MenuPageController implements Initializable {
         double progress;
         if(level > 10) {       //max level is 10
             level = 10;
+
+            //sets special style for player that gets level max
             rankName.setStyle("-fx-background-color: GOLD");
             progressBar.setProgress(1);
             progressBar.setStyle("-fx-box-border: GOLD");
             progressBar.setStyle("-fx-accent: GOLD");
+
+            //set numeric value of the level progress
             levelProgressString = "" + l.getXPNeeded(10) + " / " + l.getXPNeeded(10);
         } else {
+            //calculate current progress in level
             progress = ((double) (player.getLvl() - l.getXPNeeded(level-1)))/l.getXPNeeded(level);
+
             //display level progress in progressBar
             progressBar.setProgress(progress);
-            //display numeric value of the level progress
+
+            //set numeric value of the level progress
             levelProgressString = "" + (player.getLvl() - l.getXPNeeded(level-1)) + " / " + l.getXPNeeded(level);
         }
+        //display numeric progress
         levelProgress.setText(levelProgressString);
-        //display rank
+        //display ranks name and image
         Pair<String, Image> rank = l.getRank(level);
-        rankName.setText(rank.getKey());
+        rankName.setText("Level " + level + ": " + rank.getKey());
         imageView.setImage(rank.getValue());
     }
 
     @FXML
     private void handleButtonLearnAction(ActionEvent event) throws IOException {
+        //go to learn path scene
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/LearnPages/LearnPathSubject.fxml"));
         Scene scene = btLearn.getScene();
         PageAction.transitionScene(root,scene,anchorPane);
@@ -91,19 +108,22 @@ public class MenuPageController implements Initializable {
 
     @FXML
     private void handleButtonPracticeAction(ActionEvent event) throws IOException {
+        //go to practice path scene
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/PracticePages/PracticePathSubject.fxml"));
         Scene scene = btPractice.getScene();
         PageAction.transitionScene(root,scene,anchorPane);
     }
     @FXML
     private void handleButtonCreditsAction(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/CreditPage/CreditsPage.fxml"));
+        //go to credits scene
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/CreditsPage.fxml"));
         Scene scene = btCredit.getScene();
         PageAction.transitionScene(root,scene,anchorPane);
     }
 
     @FXML
     private void handleButtonPlacarAction(ActionEvent event) throws IOException {
+        //go to leaderboard scene
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/LeaderBoardPage.fxml"));
         Scene scene = btPlacar.getScene();
         PageAction.transitionScene(root,scene,anchorPane);
@@ -111,6 +131,7 @@ public class MenuPageController implements Initializable {
 
     @FXML
     private void handleButtonManualAction(ActionEvent event) throws IOException {
+        //go to manual scene
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/ManualPage.fxml"));
         Scene scene = btPlacar.getScene();
         PageAction.transitionScene(root,scene,anchorPane);
@@ -118,11 +139,13 @@ public class MenuPageController implements Initializable {
 
     @FXML
     private void handleButtonExitAction(ActionEvent event) {
+        //exit program
         Platform.exit();
     }
 
     @FXML
     private void handleButtonRefreshAction(ActionEvent event) {
+        //updates the rank
         displayRank();
     }
 }

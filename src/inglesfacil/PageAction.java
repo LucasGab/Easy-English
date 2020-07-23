@@ -6,6 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
+/**
+ * Make scene animations
+ *
+ * @author Lucas Gabriel Silva
+ * @author Tainá Andrello Piai
+ */
 public class PageAction {
     public static void transitionScene(Parent root, Scene scene, AnchorPane anchorPane) {
         root.translateYProperty().set(scene.getHeight());

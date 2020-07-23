@@ -2,7 +2,6 @@ package inglesfacil.InitialPage;
 
 import inglesfacil.ConnectionDB;
 import inglesfacil.GameInformation.Profile;
-import inglesfacil.InglesFacil;
 import inglesfacil.PageAction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +24,14 @@ import java.util.*;
 
 import static java.util.stream.Collectors.toMap;
 
+/**
+ * FXML Controller class
+ * Sets the leaderboard table in the scene reading the
+ * level of all of the accounts from the data base
+ *
+ * @author Daniel Suzumura
+ * @author Mateus Zanetti Camargo Penteado
+ */
 public class LeaderBoardPageController implements Initializable {
 
     @FXML
@@ -34,21 +41,19 @@ public class LeaderBoardPageController implements Initializable {
 
     @FXML
     private TableView<Profile> tbLeaderBoard;
-
     @FXML
     public TableColumn<Profile, String> username;
-
     @FXML
     public TableColumn<Profile, Integer> level;
-
     @FXML
     public TableColumn<Profile, Integer> position;
 
-    Map<String, Integer> map;
+    /** Stores the name and level of all players */
+    private Map<String, Integer> map;
+
     private Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
-
 
 
     @Override
@@ -59,33 +64,37 @@ public class LeaderBoardPageController implements Initializable {
         }catch (NullPointerException e) {
             e.printStackTrace();
         }
-        position.setCellValueFactory(new PropertyValueFactory<Profile,Integer>("position"));
-        username.setCellValueFactory(new PropertyValueFactory<Profile,String>("name"));
-        level.setCellValueFactory(new PropertyValueFactory<Profile,Integer>("lvl"));
+        //sets up the tableViewColumns
+        position.setCellValueFactory(new PropertyValueFactory<>("position"));
+        username.setCellValueFactory(new PropertyValueFactory<>("name"));
+        level.setCellValueFactory(new PropertyValueFactory<>("lvl"));
         display();
     }
 
+    /**
+     * Fill the tableView with the data from the database
+     */
     public void display() {
         try {
-            map = new HashMap<String, Integer>();
-            String querry = "select * from tbPlayer";
+            map = new HashMap<>();
+            String query = "select * from tbPlayer";
 
-            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
+            //read all the data from the database
             while (resultSet.next()) {
                 map.put(resultSet.getString("username"), resultSet.getInt("level"));
             }
+
             //sort map in descending order
             Map<String, Integer> sorted = map
                     .entrySet()
                     .stream()
                     .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                    .collect(
-                            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
-                                    LinkedHashMap::new));
+                    .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
             ObservableList<Profile> profile = FXCollections.observableArrayList();
-            //fill table
+            //fill the table with the data
             int i = 1;
             for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
                 Profile player = new Profile(i,entry.getKey(), entry.getValue());

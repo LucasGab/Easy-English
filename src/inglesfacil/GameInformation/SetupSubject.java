@@ -1,32 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package inglesfacil.GameInformation;
 
-import inglesfacil.GameInformation.Subject;
 import javafx.scene.image.Image;
 
 /**
- * Create a subject and fill it with word(english)-word(portuguese) and link
+ * Create a object of type Subject and fill it with word(english)-word(portuguese) and link
  * word(english) with an image representation to be added to a dictionary.
  *
- * @author
+ * @author Daniel Suzumura
+ * @author Mateus Zanetti Camargo Penteado
  */
 public class SetupSubject {
 
     /** stores which category the subject is from */
     private static String category;
 
+    /**
+     * Set category
+     * @param s Value to be assigned to the category
+     */
     public static void setCategory(String s) {
         category = s;
     }
 
     /**
      * Fill the subject with words and images
-     * @param sub Indicates which subject will be created
-     * @return the subject filled with its content
+     * @param sub Indicates which type of subject will be created
+     * @return the subject filled with the respective content
      */
     public static Subject fillSubject(String sub) {
         Subject subject = new Subject();

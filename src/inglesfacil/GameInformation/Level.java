@@ -8,36 +8,45 @@ import java.util.Map;
 
 /**
  * Defines the rank representation for the player`s level
+ *
+ * @author Daniel Suzumura
+ * @author Tainá Andrello Piai
+ * @author Mateus Zanetti Camargo Penteado
  */
 public class Level {
+    /** Max level available */
+    private final int MAX_LEVEL = 11;
     /** Holds the image and name of rank for determined level */
     private Map<Integer, Pair<String, Image>> rank;
-    /** Level and the amount of XP needed to upgrade*/
+    /** Level and the amount of XP needed to level up*/
     private Map<Integer, Integer> levelUp;
+    /** Indicates when the player will level up */
     private int [] xpList = new int[] {5,10,25,20,25,30,40,60,80,110,150};
+
     /**
-     * Cronstructor that sets up the rank`s information for each level
+     * Constructor that sets up the rank`s information for each level
      */
     public Level () {
         rank = new HashMap<>();
         levelUp = new HashMap<>();
 
-        rank.put(0,new Pair<String,Image>("ANT",new Image("/resources/insect/insetos1/ant.png")));
-        rank.put(1,new Pair<String,Image>("BEE",new Image("/resources/insect/voadores/bee.png")));
-        rank.put(2,new Pair<String,Image>("SPIDER",new Image("/resources/insect/insetos2/spider.png")));
-        rank.put(3,new Pair<String,Image>("BEETLE",new Image("/resources/insect/insetos1/beetle.png")));
-        rank.put(4,new Pair<String,Image>("FISH",new Image("/resources/animals/aquaticos/fish.png")));
-        rank.put(5,new Pair<String,Image>("CAT",new Image("/resources/animals/mamiferos/cat.png")));
-        rank.put(6,new Pair<String,Image>("DOG",new Image("/resources/animals/mamiferos/dog.png")));
-        rank.put(7,new Pair<String,Image>("BEAR",new Image("/resources/animals/selvagens/bear.png")));
-        rank.put(8,new Pair<String,Image>("LION",new Image("/resources/animals/selvagens/lion.png")));
-        rank.put(9,new Pair<String,Image>("ELEPHANT",new Image("/resources/animals/selvagens/elephant.png")));
-        rank.put(10,new Pair<String,Image>("WHALE",new Image("/resources/animals/aquaticos/whale.png")));
+        rank.put(0, new Pair<>("ANT", new Image("/resources/insect/insetos1/ant.png")));
+        rank.put(1, new Pair<>("BEE", new Image("/resources/insect/voadores/bee.png")));
+        rank.put(2, new Pair<>("SPIDER", new Image("/resources/insect/insetos2/spider.png")));
+        rank.put(3, new Pair<>("BEETLE", new Image("/resources/insect/insetos1/beetle.png")));
+        rank.put(4, new Pair<>("FISH", new Image("/resources/animals/aquaticos/fish.png")));
+        rank.put(5, new Pair<>("CAT", new Image("/resources/animals/mamiferos/cat.png")));
+        rank.put(6, new Pair<>("DOG", new Image("/resources/animals/mamiferos/dog.png")));
+        rank.put(7, new Pair<>("BEAR", new Image("/resources/animals/selvagens/bear.png")));
+        rank.put(8, new Pair<>("LION", new Image("/resources/animals/selvagens/lion.png")));
+        rank.put(9, new Pair<>("ELEPHANT", new Image("/resources/animals/selvagens/elephant.png")));
+        rank.put(10, new Pair<>("WHALE", new Image("/resources/animals/aquaticos/whale.png")));
 
         for(int i = 0; i < xpList.length; ++i) {
             levelUp.put(i,xpList[i]);
         }
     }
+
     /**
      * Return the name and the image of the rank.
      * @param level Current level
@@ -46,6 +55,7 @@ public class Level {
     public Pair<String,Image> getRank(int level) {
         return rank.get(level);
     }
+
     /**
      * Return the xp needed to be able to level up.
      * @param level Current level
@@ -57,6 +67,7 @@ public class Level {
         }
         return levelUp.get(level);
     }
+
     /**
      * Return the Player level.
      * @param xp Points that the player have
@@ -66,7 +77,7 @@ public class Level {
         if (xp < xpList[0]) {
            return 0;
         } else if(xp > xpList[xpList.length - 1]) {
-            return 11;
+            return MAX_LEVEL;
         } else {
             for(int i = 0; i < xpList.length - 1; ++i) {
                 if (xpList[i] <= xp && xp < xpList[i + 1]) {
