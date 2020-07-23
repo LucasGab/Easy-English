@@ -1,17 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package inglesfacil.LearnPages;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 /**
- * FXML Controller class
+ * FXML Controller class.
+ * Inherits LearnPathPageController class.
+ * Stores the scene from the button clicked.
+ * Controls the object subject scene.
  *
- *
+ * @author Daniel Suzumura
  */
 public class LearnPathObjectController extends LearnPathPageController {
 

@@ -21,6 +21,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+/**
+ * FXML Controller class
+ * Inserts new users in database
+ *
+ * @author Daniel Suzumura
+ */
 public class RegisterPageController  implements Initializable{
     @FXML
     private AnchorPane anchorPane;
@@ -39,11 +45,23 @@ public class RegisterPageController  implements Initializable{
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        duplicateUsername.setVisible(false);
+        //connection to database
+        try {
+            connection = ConnectionDB.conector();
+        }catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void handleButtonBackAction(ActionEvent event) throws IOException {
         Scene scene = btBack.getScene();
         PageAction.backScene(scene,anchorPane);
     }
+
     @FXML
     private void handleButtonRegisterAction(ActionEvent event) throws IOException {
         try {
@@ -54,31 +72,22 @@ public class RegisterPageController  implements Initializable{
             preparedStatement.setString(2, passwordField.getText());
             preparedStatement.setInt(3, 0);
             int add = preparedStatement.executeUpdate();
-            if(add > 0) {       //foi criado o perfil
+            if(add > 0) {      //indicates that the profile was inserted
+
                 //stores the profile
                 Profile player = new Profile(usernameField.getText(),0);
                 StorePlayer.setPlayer(player);
-                //load Menu scene
+
+                //go to Menu scene
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/MenuPage.fxml"));
                 Scene scene = btRegister.getScene();
                 PageAction.transitionScene(root,scene,anchorPane);
             }
         }catch(com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException duplicate) {
-            // erro ao tentar adicionar um usuario com nome ja existente
-            duplicateUsername.setVisible(true);
+            // username already exists
+            duplicateUsername.setVisible(true);     //set error message visible
         }
         catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        duplicateUsername.setVisible(false);
-        //connection to database
-        try {
-            connection = ConnectionDB.conector();
-        }catch (NullPointerException e) {
             e.printStackTrace();
         }
     }

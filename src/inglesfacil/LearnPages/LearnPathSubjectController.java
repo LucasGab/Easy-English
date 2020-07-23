@@ -24,8 +24,10 @@ import javafx.scene.layout.AnchorPane;
  * FXML Controller class
  *
  * @author Lucas Gabriel Silva
+ * @author Daniel Suzumura
+ *
  */
-public class LearnPathSubjectController implements Initializable {
+public class LearnPathSubjectController  {
 
     @FXML
     private Button btBack;
@@ -66,19 +68,10 @@ public class LearnPathSubjectController implements Initializable {
             scene = btInsects.getScene();
         }
 
+        //go to game level selected
         Parent root = loader.load();
         AnchorPane anchorPane = (AnchorPane) scene.getRoot();
         PageAction.transitionScene(root,scene,anchorPane);
-    }
-
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }
 
 }

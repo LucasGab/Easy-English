@@ -8,13 +8,10 @@ package inglesfacil.PracticePages;
 import inglesfacil.PageAction;
 import inglesfacil.GameInformation.SetupSubject;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,8 +21,9 @@ import javafx.scene.layout.AnchorPane;
  * FXML Controller class
  *
  * @author Lucas Gabriel Silva
+ * @author Tainá Andrello Piai
  */
-public class PracticePathSubjectController implements Initializable {
+public class PracticePathSubjectController  {
 
     @FXML
     private AnchorPane panel;
@@ -39,16 +37,6 @@ public class PracticePathSubjectController implements Initializable {
     private Button btInsects;
     @FXML
     private Button btBack;
-
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
 
     @FXML
     private void handleButtonPracticeAction(ActionEvent event) throws IOException {
@@ -70,10 +58,10 @@ public class PracticePathSubjectController implements Initializable {
             loader = new FXMLLoader(getClass().getResource("/fxml/PracticePages/PracticePathInsect.fxml"));
             scene = btInsects.getScene();
         }
-        
+
+        //go to game level selected
         Parent root = loader.load();
         AnchorPane anchorPane = (AnchorPane) scene.getRoot();
-
         PageAction.transitionScene(root,scene,anchorPane);
     }
 

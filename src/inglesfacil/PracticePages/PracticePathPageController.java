@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package inglesfacil.PracticePages;
 
 import inglesfacil.PageAction;
@@ -26,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Lucas Gabriel Silva
  */
-public abstract class PracticePathPageController implements Initializable {
+public abstract class PracticePathPageController {
 
     @FXML
     private Button btColors;
@@ -38,24 +33,16 @@ public abstract class PracticePathPageController implements Initializable {
     private AnchorPane panel;
     @FXML
     private Button btObjects;
+    @FXML
+    private Button btInsects;
     
     protected Scene scene;
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
 
     @FXML
     private void handleButtonPracticeAction(ActionEvent event) throws IOException {
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/PracticePages/PracticePage.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/LearnPage.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         PracticePageController controller = loader.<PracticePageController>getController();
         
         String sub = ((Button)event.getSource()).getText();
@@ -67,9 +54,9 @@ public abstract class PracticePathPageController implements Initializable {
 
         PageAction.transitionScene(root,scene,anchorPane);
     }
-    
+
     /**
-     * scene relieves bt_____.getScene()
+     * scene receives scene of the button clicked
      * @param sub Indicates which subject will be created
      */
     public abstract void setSceneCategory(String sub);
@@ -82,5 +69,4 @@ public abstract class PracticePathPageController implements Initializable {
         PageAction.backScene(scene,panel);
         
     }
-    
 }

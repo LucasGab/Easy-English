@@ -3,11 +3,16 @@ package inglesfacil.GameInformation;
 /**
  * Represents a profile that contains information
  * about the player
+ *
+ * @author Lucas Gabriel Silva
+ * @author Tainá Andrello Piai
  */
 public class Profile {
 
     private String name;
     private int lvl;
+
+    /** Only used to create the leaderboard table */
     private int position;
 
     public Profile() {

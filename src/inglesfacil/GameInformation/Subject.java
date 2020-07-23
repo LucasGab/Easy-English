@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package inglesfacil.GameInformation;
 
 import java.util.HashMap;
@@ -10,9 +5,14 @@ import java.util.Map;
 import javafx.scene.image.Image;
 
 /**
- * Structure to word as a dictionary to have a
- * portuguese word and its translation to english
- * and hold a image of this word
+ * Structure to create a dictionary(using a Map)
+ * to have a portuguese word and its translation
+ * in english. Also for every word added to the
+ * dictionary, an image of the representation of
+ * this word will be linked to the word using a Map
+ *
+ * @author Lucas Gabriel Silva
+ * @author Tainá Andrello Piai
  */
 public class Subject {
     
@@ -64,7 +64,4 @@ public class Subject {
     public Map<String, Image> getImages() {
         return images;
     }
-    
-    
-    
 }

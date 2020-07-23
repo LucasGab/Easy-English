@@ -22,8 +22,6 @@ import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
- *
- * @author Lucas Gabriel Silva
  */
 public class LearnPageController implements Initializable {
 
@@ -45,19 +43,29 @@ public class LearnPageController implements Initializable {
     private AnchorPane panel;
     @FXML
     private Button btLast;
-    
+
+    /**
+     * Initializes the controller class.
+     * @param url
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        totalWords = subject.getDictionary().size();
+        contWord = 0;
+    }
+
     public void setSubject(Subject subject){
         this.subject = subject;
         totalWords = subject.getDictionary().size();
         setView();
     }
-    
+
     @FXML
     private void handleButtonBackAction(ActionEvent event) throws IOException {
         Scene scene = btBack.getScene();
         PageAction.backScene(scene,panel);
     }
-    
+
     @FXML
     private void handleButtonLastAction(ActionEvent event) throws IOException {
         contWord-=1;
@@ -65,7 +73,7 @@ public class LearnPageController implements Initializable {
             contWord=0;
         setView();
     }
-    
+
     @FXML
     private void handleButtonNextAction(ActionEvent event) throws IOException {
         contWord+=1;
@@ -76,17 +84,7 @@ public class LearnPageController implements Initializable {
             setView();
         }
     }
-    
-    /**
-     * Initializes the controller class.
-     * @param url
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        totalWords = subject.getDictionary().size();
-        contWord = 0;
-    }    
-    
+
     
     private void setView(){
         String name = (String)subject.getDictionary().keySet().toArray()[contWord];
