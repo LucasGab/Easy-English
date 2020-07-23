@@ -82,13 +82,13 @@ public class MenuPageController implements Initializable {
             levelProgressString = "" + l.getXPNeeded(10) + " / " + l.getXPNeeded(10);
         } else {
             //calculate current progress in level
-            progress = ((double) (player.getLvl() - l.getXPNeeded(level-1)))/l.getXPNeeded(level);
+            progress = ((double) (player.getLvl() - l.getLevelXP(level-1)))/l.getXPNeeded(level);
 
             //display level progress in progressBar
             progressBar.setProgress(progress);
 
             //set numeric value of the level progress
-            levelProgressString = "" + (player.getLvl() - l.getXPNeeded(level-1)) + " / " + l.getXPNeeded(level);
+            levelProgressString = "" + (player.getLvl() - l.getLevelXP(level-1)) + " / " + l.getXPNeeded(level);
         }
         //display numeric progress
         levelProgress.setText(levelProgressString);

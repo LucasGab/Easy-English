@@ -15,13 +15,14 @@ import java.util.Map;
  */
 public class Level {
     /** Max level available */
-    private final int MAX_LEVEL = 11;
+    private final int MAX_LEVEL = 10;
     /** Holds the image and name of rank for determined level */
     private Map<Integer, Pair<String, Image>> rank;
     /** Level and the amount of XP needed to level up*/
     private Map<Integer, Integer> levelUp;
     /** Indicates when the player will level up */
-    private int [] xpList = new int[] {5,10,25,20,25,30,40,60,80,110,150};
+    private int [] xpList = new int[] {5,10,15,25,35,50,70,95,125,160,200};
+                                    //0  1  2  3  4  5  6  7  8  9   10  MAX
 
     /**
      * Constructor that sets up the rank`s information for each level
@@ -65,6 +66,18 @@ public class Level {
         if(level < 0 || level > 10) {
             return 0;
         }
+        return level == 0 ? levelUp.get(level) : levelUp.get(level) - levelUp.get(level - 1);
+    }
+
+    /**
+     * Return the xp gained until certain level.
+     * @param level level to be verified
+     * @return Integer - xp needed to be able to level up
+     */
+    public int getLevelXP(int level) {
+        if(level < 0 || level > 10) {
+            return 0;
+        }
         return levelUp.get(level);
     }
 
@@ -76,8 +89,8 @@ public class Level {
     public int getLevel(int xp) {
         if (xp < xpList[0]) {
            return 0;
-        } else if(xp > xpList[xpList.length - 1]) {
-            return MAX_LEVEL;
+        } else if(xp >= xpList[xpList.length - 1]) {
+            return MAX_LEVEL + 1;
         } else {
             for(int i = 0; i < xpList.length - 1; ++i) {
                 if (xpList[i] <= xp && xp < xpList[i + 1]) {

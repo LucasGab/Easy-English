@@ -35,9 +35,9 @@
                                  </children>
                               </Pane>
                               <Label fx:id="levelProgress" layoutX="65.0" layoutY="208.0" text="level progress" />
-                              <StackPane layoutX="91.0" layoutY="138.0" prefHeight="61.0" prefWidth="134.0">
+                              <StackPane layoutX="59.0" layoutY="155.0" prefHeight="30.0" prefWidth="200.0">
                                  <children>
-                                    <Label fx:id="rankName" alignment="CENTER" text="RANK NAME">
+                                    <Label fx:id="rankName" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="51.0" prefWidth="200.0" text="RANK NAME">
                                        <font>
                                           <Font name="Cambria Math" size="20.0" />
                                        </font>
