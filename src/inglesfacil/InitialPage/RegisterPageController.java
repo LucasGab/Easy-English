@@ -66,24 +66,24 @@ public class RegisterPageController  implements Initializable{
     private void handleButtonRegisterAction(ActionEvent event) throws IOException {
         try {
             String query = " insert into tbPlayer (username, password, level)"
-                            + " values (?, ?, ?)";
+                    + " values (?, ?, ?)";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, usernameField.getText());
             preparedStatement.setString(2, passwordField.getText());
             preparedStatement.setInt(3, 0);
             int add = preparedStatement.executeUpdate();
-            if(add > 0) {      //indicates that the profile was inserted
+            if (add > 0) {      //indicates that the profile was inserted
 
                 //stores the profile
-                Profile player = new Profile(usernameField.getText(),0);
+                Profile player = new Profile(usernameField.getText(), 0);
                 StorePlayer.setPlayer(player);
 
                 //go to Menu scene
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/InitialPage/MenuPage.fxml"));
                 Scene scene = btRegister.getScene();
-                PageAction.transitionScene(root,scene,anchorPane);
+                PageAction.transitionScene(root, scene, anchorPane);
             }
-        }catch(com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException duplicate) {
+        }catch(java.sql.SQLIntegrityConstraintViolationException duplicate) {
             // username already exists
             duplicateUsername.setVisible(true);     //set error message visible
         }

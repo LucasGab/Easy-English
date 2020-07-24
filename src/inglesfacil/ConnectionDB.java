@@ -9,7 +9,7 @@ import java.sql.*;
 public class ConnectionDB {
     public static java.sql.Connection conector() {
         java.sql.Connection connection = null;
-        String driver = "com.mysql.jdbc.Driver";
+        String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://sql10.freesqldatabase.com:3306/sql10355412?autoReconnect=true&useSSL=false";
         String user = "sql10355412";
         String password = "SxVnnnZTWt";
