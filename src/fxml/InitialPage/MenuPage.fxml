@@ -32,6 +32,10 @@
                               <Pane fx:id="rankImage" layoutX="70.0" layoutY="24.0" prefHeight="105.0" prefWidth="177.0">
                                  <children>
                                     <ImageView fx:id="imageView" fitHeight="113.0" fitWidth="177.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="false" />
+                                    <Label fx:id="guestRankMessage" layoutX="-53.0" layoutY="33.0" prefHeight="72.0" prefWidth="287.0" text="Para ver o level é necessário criar uma conta" visible="false">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
                                  </children>
                               </Pane>
                               <Label fx:id="levelProgress" layoutX="65.0" layoutY="208.0" text="level progress" />

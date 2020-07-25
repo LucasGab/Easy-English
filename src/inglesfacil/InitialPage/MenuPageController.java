@@ -55,6 +55,8 @@ public class MenuPageController implements Initializable {
     private Button btPlacar;
     @FXML
     private Button btRefresh;
+    @FXML
+    private Label guestRankMessage;
 
     private Profile player;
 
@@ -64,6 +66,13 @@ public class MenuPageController implements Initializable {
     }
 
     private void displayRank() {
+        if (StorePlayer.getGuest() == true) {       //don't display rank if player is guest
+            rankName.setText("Convidado");
+            levelProgress.setVisible(false);
+            progressBar.setProgress(1);
+            guestRankMessage.setVisible(true);
+            return;
+        }
         player = StorePlayer.getPlayer();
         String levelProgressString = "";
         Level l = new Level();
